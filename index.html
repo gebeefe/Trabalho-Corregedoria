@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Corregedoria em Números</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmShuG/95TknrltYmjB1X5kL1sPvzQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="main-header-img">
+            <img src="img/logoCorregedoria.png" alt="Logo do Governo do Estado do Rio de Janeiro e Corregedoria">
+        </div>
+    </header>
+
+    <main>
+        <div class="main-img">
+            <h1 class="main-title-over-image">Corregedoria em Números</h1>
+            <img src="img/imgCorregedoria.png" alt="Estagiários de TI colaborando em um escritório com um quadro 'Corregedoria em Números'">
+        </div>
+        <section class="title-section card">
+            <h1>Relatório Corregedoria em Números</h1>
+            <p>O projeto corregedoria em números surge com a proposta de transformar dados internos em informação acessível, relevante e estratégica para a gestão pública. Por meio da análise de indicadores relacionados à atuação da CGE, a iniciativa busca evidenciar a importância e os resultados concretos do trabalho correcional e o aprimoramento contínuo dos serviços públicos. A proposta central do projeto é utilizar ferramentas de análise de dados para mapear, monitorar e divulgar o desempenho da CGE.</p>
+            
+            <div class="year-filter-container">
+                <span class="filter-label">Selecione um ano</span> <select id="yearSelect" class="year-select-button">
+                    </select>
+            </div>
+
+                <p class="last-update">Última Atualização: 30/07/2025 08:30</p>
+
+            <div class="metrics-grid" id="metricsGridContainer">
+                <div class="metric-card">
+                    <span class="metric-label">JADs instaurados</span>
+                    <span class="metric-value">461</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">PADs instaurados</span>
+                    <span class="metric-value" id="totalPadsMain">586</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">PADs concluídos</span>
+                    <span class="metric-value">209</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="admissibility-section card">
+            <h2>Juízo de admissibilidade</h2>
+            <p>O <strong>Juízo de Admissibilidade</strong> é uma análise prévia realizada pela autoridade competente para verificar se existem indícios mínimos de que uma infração disciplinar foi cometida por um servidor e quem seria o provável responsável. Funciona como um filtro inicial, decidindo se há base suficiente para abrir um Processo Administrativo Disciplinar (PAD) e apurar o fundo os fatos, ou se a acusação deve ser arquivada, quer por falta de elementos, evitando investigações desnecessárias ou se a infração apurada for leve, punível no máximo com advertência, repreensão ou suspensão de até 30 dias, hipótese em que a própria apuração sumária pode levar à punição.</p>
+            <p>Dos juízos de admissibilidade, temos um total de <span class="highlight" id="judsPositivos">590 positivos</span> e <span class="highlight" id="judsNegativos">78 negativos</span>, como pode ser visto no gráfico abaixo.</p>
+
+            <div class="chart-admissibility-wrapper" id="admissibilityChartContainer">
+                <canvas id="admissibilityChart"></canvas>
+            </div>
+        </section>
+
+        <section class="chart-section card">
+            <h2>PADs instaurados por assunto</h2>
+            <p>Imagine que um servidor público estadual é acusado de cometer alguma irregularidade grave no exercício de suas funções. O <strong>Processo Administrativo Disciplinar (PAD)</strong> é como uma investigação formal, um procedimento oficial que a Administração Pública utiliza para apurar se essa acusação é verdadeira. Ele serve para garantir que o servidor tenha direito à defesa e que, ao final, se comprovada a irregularidade, a punição seja justa e de acordo com a lei. O PAD é fundamental para manter a integridade e a eficiência do serviço público.</p>
+            <p>O número total de PADs instaurados foi <span id="totalPadsAssunto">586</span>. O gráfico abaixo indica a quantidade de PADs distribuídos por assunto:</p>
+
+            <div class="chart-wrapper vertical-chart" id="padAssuntoChartContainer">
+                <div class="y-axis-label">Quantidade</div>
+                <div class="chart-bars" id="padAssuntoChart">
+                </div>
+            </div>
+            <p class="chart-caption">Dados de processos administrativos disciplinares por assunto.</p>
+        </section>
+
+        <section class="chart-section card">
+            <h2>PADs por órgão de origem</h2>
+            <p>A unidade de origem com mais processos criados é a <span class="highlight">SEEDUC</span>, representando um total de <span class="highlight">500</span> notas, o que corresponde a <span class="highlight">61.40%</span> do total. O gráfico abaixo indica a quantidade de processos criados para cada uma das sete unidades mais presentes em registro:</p>
+
+            <div class="chart-wrapper horizontal-chart" id="orgChartContainer">
+                <canvas id="orgChart"></canvas>
+            </div>
+            <p class="chart-caption">Dados de processos administrativos disciplinares por órgão de origem.</p>
+        </section>
+
+        <section class="sanctions-info-section card">
+            <h2>Sanções aplicadas</h2>
+            <p>Quais são as penalidades disciplinares cabíveis?</p>
+
+            <div class="penalty-detail">
+                <h3>1. Advertência:</h3>
+                <ul>
+                    <li><strong>O que é?</strong> É a punição mais leve, como um "aviso" formal dado ao servidor.</li>
+                    <li><strong>Como é aplicada?</strong> Geralmente é feita verbalmente, mas fica registrada nos assentamentos funcionais do servidor.</li>
+                    <li><strong>Quando é aplicada?</strong> Em casos de faltas leves, como um ato de negligência (descuido ou desatenção no cumprimento de um dever).</li>
+                    <li><strong>Base legal principal:</strong> Art. 48 do Decreto-Lei nº 220/75.</li>
+                </ul>
+            </div>
+
+            <div class="penalty-detail">
+                <h3>2. Repreensão:</h3>
+                <ul>
+                    <li><strong>O que é?</strong> É uma censura formal, um pouco mais séria que a advertência.</li>
+                    <li><strong>Como é aplicada?</strong> É feita por escrito e também fica registrada nos assentamentos do servidor.</li>
+                    <li><strong>Quando é aplicada?</strong> Em casos de desobediência a ordens superiores (desde que não sejam ilegais), falta de cumprimento dos deveres funcionais, ou quando o servidor repete uma falta que já havia sido punida com advertência.</li>
+                    <li><strong>Base legal principal:</strong> Art. 49 do Decreto-Lei nº 220/75.</li>
+                </ul>
+            </div>
+
+            <div class="penalty-detail">
+                <h3>3. Suspensão (de 1 a 180 dias):</h3>
+                <ul>
+                    <li><strong>O que é?</strong> É o afastamento temporário do servidor de suas funções.</li>
+                    <li><strong>Duração:</strong> Pode variar de 1 até, no máximo, 180 dias, dependendo da gravidade da infração, da intenção do agente e dos danos materiais e/ou morais sofridos pela Administração Pública.</li>
+                    <li><strong>Consequências:</strong> Durante o período de suspensão, o servidor perde o vencimento (salário) e todas as vantagens e direitos decorrentes do exercício do cargo.</li>
+                    <li><strong>Quando é aplicada?</strong> Em casos de:
+                        <ul>
+                            <li>Falta grave.</li>
+                            <li>Desrespeito a proibições estabelecidas no art. 40 do Decreto-Lei n. 220/75 que não ensejarem a pena de demissão.</li>
+                            <li>Remoção em falta que já foi punida com repreensão.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Observação:</strong> Em algumas situações, se for conveniente para o serviço público, a suspensão pode ser convertida em multa. Nesse caso, o servidor continua trabalhando, mas recebe apenas uma parte do seu vencimento.</li>
+                    <li><strong>Base legal principal:</strong> Art. 50 do Decreto-Lei nº 220/75.</li>
+                </ul>
+            </div>
+
+            <div class="penalty-detail">
+                <h3>4. Demissão:</h3>
+                <ul>
+                    <li><strong>O que é?</strong> É a punição mais severa para um servidor ativo, resultando na perda definitiva do cargo público.</li>
+                    <li><strong>Quando é aplicada?</strong> Em casos de faltas que se enquadrem em quaisquer das hipóteses do art. 52 do Decreto-Lei n. 220/75, por exemplo:
+                        <ul>
+                            <li>Abandono de cargo (ausentar-se do serviço sem justificativa por 10 dias consecutivos, para fins disciplinares, conforme §1º do Art. 52 do Decreto-Lei nº 220/75 com redação da LC nº 85/96).</li>
+                            <li>Ausência ao serviço sem causa justificada por 20 dias intercalados, conforme Art. 52, VI do Decreto-Lei nº 220/75 com redação da LC nº 85/96.</li>
+                            <li>Cometer atos de corrupção, improbidade administrativa ou crimes contra a administração pública.</li>
+                            <li>Incontinência pública e escandalosa; prática de jogos proibidos.</li>
+                            <li>Embriaguez habitual ou em serviço.</li>
+                            <li>Ofensa física em serviço contra outro servidor ou particular (salvo legítima defesa).</li>
+                            <li>Insubordinação grave em serviço.</li>
+                            <li>Desídia (preguiça, desleixo) no cumprimento dos deveres.</li>
+                            <li>Outras faltas previstas em lei, especialmente no Art. 40 (proibições) do Decreto-Lei nº 220/75, quando houver má-fé.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Base legal principal:</strong> Art. 52, 53 e 54 do Decreto-Lei nº 220/75.</li>
+                </ul>
+            </div>
+
+            <div class="penalty-detail">
+                <h3>5. Cassação de Aposentadoria ou Disponibilidade:</h3>
+                <ul>
+                    <li><strong>O que é?</strong> É a perda do benefício da aposentadoria ou da disponibilidade. Afeta o servidor que já não está mais na ativa, mas que cometeu faltas graves.</li>
+                    <li><strong>Quando é aplicada?</strong>
+                        <ul>
+                            <li>Se ficar provado que o servidor, quando ainda estava trabalhando, cometeu uma falta que justificaria a demissão.</li>
+                            <li>Se o aposentado ou disponível aceitou ilegalmente outro cargo ou função pública.</li>
+                            <li>Se perdeu a nacionalidade brasileira.</li>
+                            <li>No caso de disponibilidade, se o servidor não assumir o cargo em que for aproveitado dentro do prazo legal.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Base legal principal:</strong> Art. 55 do Decreto-Lei nº 220/75. Cometer atos de corrupção, improbidade administrativa ou crimes contra a administração pública.</li>
+                </ul>
+            </div>
+
+            <p>No total, <span class="highlight" id="totalSanctionsText">283</span> sanções foram aplicadas. Abaixo, está indicado o número de registros das sete penalidades disciplinares mais recorrentes:</p>
+
+            <div class="chart-wrapper vertical-chart" id="sanctionChartContainer">
+                <div class="y-axis-label">Quantidade</div>
+                <div class="chart-bars" id="sanctionChart">
+                </div>
+            </div>
+            <p class="chart-caption">Quantidade de sanções aplicadas por tipo de penalidade.</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/logoCorregedoria.png" alt="Logo CGE e Governo RJ no rodapé">
+            </div>
+            <div class="footer-info-group">
+                <div class="footer-info-item">
+                    <i class="fa-solid fa-location-dot"></i> <p>Av Erasmo Braga, 118 - 12º e 13º andar<br>Centro RJ/CEP 20020-000</p>
+                </div>
+                <div class="footer-info-item">
+                    <i class="fa-solid fa-clock"></i> <p>Seg a Sex<br>9h às 18h</p>
+                </div>
+                <div class="footer-info-item">
+                    <i class="fa-solid fa-phone"></i> <p>21 2333-4194<br>controladoria@cge.rj.gov.br</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Todos os Direitos Reservados - Controladoria Geral do Estado do Rio de Janeiro</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
