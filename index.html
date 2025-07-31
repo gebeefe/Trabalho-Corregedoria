@@ -25,13 +25,23 @@
             <h1>Relatório Corregedoria em Números</h1>
             <p>O projeto corregedoria em números surge com a proposta de transformar dados internos em informação acessível, relevante e estratégica para a gestão pública. Por meio da análise de indicadores relacionados à atuação da CGE, a iniciativa busca evidenciar a importância e os resultados concretos do trabalho correcional e o aprimoramento contínuo dos serviços públicos. A proposta central do projeto é utilizar ferramentas de análise de dados para mapear, monitorar e divulgar o desempenho da CGE.</p>
             
-            <div class="year-filter-container">
-                <span class="filter-label">Selecione um ano</span> <select id="yearSelect" class="year-select-button">
-                    </select>
+            <div class="filter-and-download-container">
+                <div class="year-filter-container">
+                    <span class="filter-label">Selecione um ano</span>
+                    <select id="yearSelect" class="year-select-button">
+                        </select>
+                </div>
+
+                <div class="download-buttons-container">
+                    <a href="arq/CorregedoriaemNumeros.csv" class="download-button">
+                        <i class="fa-solid fa-download"></i> Download em CSV
+                    </a>
+                    <a href="arq/CorregedoriaemNumeros.xlsx" class="download-button">
+                        <i class="fa-solid fa-download"></i> Download em Excel
+                    </a>
+                </div>
             </div>
-
-                <p class="last-update">Última Atualização: 30/07/2025 08:30</p>
-
+            <p class="last-update">Última Atualização: 14/07/2025 08:30</p>
             <div class="metrics-grid" id="metricsGridContainer">
                 <div class="metric-card">
                     <span class="metric-label">JADs instaurados</span>

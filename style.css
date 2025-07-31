@@ -146,21 +146,29 @@ h3 {
     text-align: center;
 }
 
+/* NOVO: Contêiner que agrupa o filtro de ano e os botões de download */
+.filter-and-download-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Espaço entre o filtro e os botões de download */
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
 /* NOVO: Estilos para o contêiner do filtro de ano */
 .year-filter-container {
-    margin-top: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 10px 20px;
     background-color: var(--light-gray);
     border-radius: 8px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
     max-width: 350px; /* Aumentado a largura máxima do contêiner */
-    margin-left: auto;
-    margin-right: auto;
     border: 1px solid var(--border-color);
     gap: 15px; /* Espaço entre o texto e o select */
+    flex-shrink: 0; /* Impede que ele encolha */
 }
 
 /* NOVO: Estilos para o texto "Selecione um ano" */
@@ -169,6 +177,7 @@ h3 {
     font-size: 1em;
     white-space: nowrap;
     flex-shrink: 0;
+    font-weight: bold;
 }
 
 /* NOVO: Estilos para o select de ano (botão enfeitado) */
@@ -209,6 +218,47 @@ h3 {
 .year-select-button option {
     font-weight: normal;
 }
+
+/* NOVO: Contêiner para os botões de download */
+.download-buttons-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 10px; /* Espaço entre os botões */
+    flex-shrink: 0; /* Impede que ele encolha */
+    align-items: center;
+    justify-content: center;
+}
+
+/* NOVO: Estilos para os botões de download */
+.download-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: var(--white);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 400; /* Normal como na imagem */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.download-button:hover {
+    background-color: var(--light-gray);
+    border-color: var(--medium-blue);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.download-button i {
+    color: var(--medium-blue);
+    font-size: 1.1em;
+}
+
 
 /* Removidos estilos de animação ao rolar */
 .metrics-grid,
@@ -520,6 +570,11 @@ footer {
     .vertical-chart .bar-item .bar-label { font-size: 0.8em; bottom: -30px; }
     .metrics-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
     .horizontal-chart { min-height: 300px; }
+
+    .filter-and-download-container {
+        flex-direction: column; /* Empilha em telas menores */
+        align-items: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -583,4 +638,4 @@ footer {
         padding: 25px 10px 10px 10px;
     }
     .footer-info-group { gap: 15px; }
-}
+}   

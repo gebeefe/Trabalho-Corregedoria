@@ -467,8 +467,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const allYears = Object.keys(allYearsData);
             dataToRender = aggregateData(allYears);
         } else if (selectedValue === "") {
-            const latestYear = Object.keys(allYearsData).sort((a, b) => b - a)[0];
-            dataToRender = aggregateData([latestYear]);
+            const allYears = Object.keys(allYearsData);
+            dataToRender = aggregateData(allYears);
+            yearSelect.value = "all";
         }
         else {
             dataToRender = aggregateData([selectedValue]);
@@ -478,10 +479,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initializeDashboard = () => {
         populateYearFilter();
-        const latestYear = Object.keys(allYearsData).sort((a, b) => b - a)[0];
-        const initialData = aggregateData([latestYear]);
+        const allYears = Object.keys(allYearsData);
+        const initialData = aggregateData(allYears);
         updateUI(initialData);
-        yearSelect.value = latestYear;
+        yearSelect.value = "all";
     };
 
     initializeDashboard();
