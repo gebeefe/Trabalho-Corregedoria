@@ -1,8 +1,6 @@
-/* Importação da fonte Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-    /* Definição de variáveis CSS para as cores */
     --navy-blue: #022c58;
     --dark-blue: #052f5c;
     --medium-blue: #033366;
@@ -23,7 +21,6 @@ body {
     line-height: 1.6;
 }
 
-/* Estilo do cabeçalho principal */
 header {
     display: flex;
     justify-content: flex-start;
@@ -43,7 +40,6 @@ header {
     margin: 0;
 }
 
-/* Estilo do container principal (onde a imagem e o texto sobreposto vivem) */
 main {
     position: relative;
 }
@@ -67,7 +63,6 @@ main {
     max-height: 600px;
 }
 
-/* Estilo do título sobreposto à imagem principal */
 .main-title-over-image {
     position: absolute;
     top: 50%;
@@ -83,7 +78,6 @@ main {
     text-align: left;
 }
 
-/* Estilos para todos os "cards" de conteúdo */
 .card {
     background-color: var(--white);
     padding: 30px;
@@ -98,7 +92,6 @@ main {
     box-shadow: var(--shadow-hover);
 }
 
-/* Estilos para títulos de seção (H1, H2, H3) */
 h1 {
     color: var(--dark-blue);
     font-size: 2.5em;
@@ -122,13 +115,11 @@ h3 {
     margin-bottom: 10px;
 }
 
-/* Destaque para números e textos importantes */
 .highlight {
     font-weight: 700;
     color: var(--dark-blue);
 }
 
-/* Seção de introdução principal */
 .title-section {
     text-align: left;
     padding-top: 30px;
@@ -146,18 +137,17 @@ h3 {
     text-align: center;
 }
 
-/* NOVO: Contêiner que agrupa o filtro de ano e os botões de download */
 .filter-and-download-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    flex-wrap: wrap; 
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Espaço entre o filtro e os botões de download */
+    gap: 30px; 
     margin-top: 40px;
     margin-bottom: 50px;
 }
 
-/* NOVO: Estilos para o contêiner do filtro de ano */
+/* Selecionar Ano */
 .year-filter-container {
     display: flex;
     align-items: center;
@@ -165,13 +155,12 @@ h3 {
     background-color: var(--light-gray);
     border-radius: 8px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-    max-width: 350px; /* Aumentado a largura máxima do contêiner */
+    max-width: 350px; 
     border: 1px solid var(--border-color);
-    gap: 15px; /* Espaço entre o texto e o select */
-    flex-shrink: 0; /* Impede que ele encolha */
+    gap: 15px; 
+    flex-shrink: 0; 
 }
 
-/* NOVO: Estilos para o texto "Selecione um ano" */
 .year-filter-container .filter-label {
     color: var(--text-color);
     font-size: 1em;
@@ -180,10 +169,9 @@ h3 {
     font-weight: bold;
 }
 
-/* NOVO: Estilos para o select de ano (botão enfeitado) */
 .year-select-button {
     appearance: none;
-    background-color: var(--navy-blue); /* Cor do botão azul marinho como na imagem */
+    background-color: var(--navy-blue); 
     color: var(--white);
     padding: 10px 15px;
     border: 1px solid var(--medium-blue);
@@ -193,7 +181,7 @@ h3 {
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
-    flex-grow: 1; /* Permite que o select ocupe o espaço restante */
+    flex-grow: 1; 
     text-align: center;
     position: relative;
     padding-right: 30px;
@@ -219,17 +207,15 @@ h3 {
     font-weight: normal;
 }
 
-/* NOVO: Contêiner para os botões de download */
 .download-buttons-container {
     display: flex;
     flex-direction: row; 
-    gap: 10px; /* Espaço entre os botões */
-    flex-shrink: 0; /* Impede que ele encolha */
+    gap: 10px; 
+    flex-shrink: 0; 
     align-items: center;
     justify-content: center;
 }
 
-/* NOVO: Estilos para os botões de download */
 .download-button {
     display: flex;
     align-items: center;
@@ -241,7 +227,7 @@ h3 {
     border-radius: 5px;
     text-decoration: none;
     font-size: 1em;
-    font-weight: 400; /* Normal como na imagem */
+    font-weight: 400; 
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -260,7 +246,6 @@ h3 {
 }
 
 
-/* Removidos estilos de animação ao rolar */
 .metrics-grid,
 .chart-admissibility-wrapper,
 .chart-wrapper,
@@ -273,7 +258,6 @@ h3 {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Grid de métricas */
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -309,7 +293,7 @@ h3 {
     color: var(--dark-blue);
 }
 
-/* Seção de Juízo de Admissibilidade */
+/* Juízo de Admissibilidade */
 .admissibility-section p {
     margin-bottom: 15px;
 }
@@ -322,7 +306,6 @@ h3 {
     margin: 30px auto 0 auto;
 }
 
-/* Estilos comuns de gráfico para o wrapper */
 .chart-section {
     padding-bottom: 25px;
 }
@@ -421,7 +404,7 @@ h3 {
     padding: 0 5px;
 }
 
-/* Gráfico de Barras Horizontais (PADs por Órgão) - Chart.js Canvas */
+/* Gráfico de Barras Horizontais (PADs por Órgão) */
 .horizontal-chart {
     border-left: none;
     border-bottom: none;
@@ -492,7 +475,6 @@ h3 {
     content: none;
 }
 
-/* --- FOOTER --- */
 footer {
     background-color: var(--navy-blue);
     color: var(--white);
@@ -558,7 +540,6 @@ footer {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* --- Responsividade Geral --- */
 @media (max-width: 992px) {
     .main-title-over-image { font-size: 3em; }
     h1 { font-size: 2em; }
@@ -572,7 +553,7 @@ footer {
     .horizontal-chart { min-height: 300px; }
 
     .filter-and-download-container {
-        flex-direction: column; /* Empilha em telas menores */
+        flex-direction: column; 
         align-items: center;
     }
 }
@@ -604,11 +585,11 @@ footer {
     .card { padding: 15px; margin: 0 10px 15px 10px; }
     .metric-card .metric-value { font-size: 1.8em; }
     .chart-wrapper {
-        height: 350px; /* AUMENTADO NOVAMENTE PARA DAR MAIS ESPAÇO PARA O TEXTO NAS BARRAS */
-        padding-left: 40px; /* AUMENTADO: Mais espaço para o rótulo Y */
+        height: 350px; 
+        padding-left: 40px; 
         flex-wrap: nowrap;
         overflow-x: auto;
-        padding-bottom: 80px; /* AUMENTADO: Mais espaço para os rótulos abaixo das barras */
+        padding-bottom: 80px; 
     }
     .y-axis-label { left: 0px; font-size: 0.7em; }
     .vertical-chart .chart-bars { gap: 8px; }
@@ -618,7 +599,7 @@ footer {
         font-size: 0.7em;
         transform: rotate(45deg);
         transform-origin: top left;
-        bottom: -60px; /* CORREÇÃO: Puxado mais para baixo para não ser cortado */
+        bottom: -60px; 
         left: 5px;
         width: auto;
         text-align: left;

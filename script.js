@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- REESTRUTURAÇÃO DOS DADOS POR ANO ---
+    // DADOS POR ANO
     const allYearsData = {
         "2020": {
             "JADS": 2, "PADS_INSTAURADOS": 9, "PADS_CONCLUIDOS": 6,
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Função para obter todas as categorias únicas de assuntos, sanções e órgãos
+    // Função para obter todas as categorias únicas
     const getAllCategories = () => {
         const assuntoCategories = new Set();
         const sancaoCategories = new Set();
@@ -174,9 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const uniqueCategories = getAllCategories();
-
-    // Helper para normalizar os dados, garantindo que todas as categorias estejam presentes
-    // com 0 se não houver dados, para facilitar a agregação.
     const normalizeYearData = (yearData) => {
         const normalizedAssunto = uniqueCategories.assuntos.map(cat => ({
             assunto: cat,
@@ -199,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
-    // Agrega os dados para os anos selecionados
     const aggregateData = (selectedYears) => {
         if (selectedYears.length === 0) {
             return {
